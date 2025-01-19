@@ -1,8 +1,8 @@
-import { Lineitem } from "./LineItem"
+import { LineItem } from "./LineItem"
 import { OrderStatus } from "./OrderStatus"
 
 class Order{
-    private lineitems : Lineitem[] = []
+    private lineitems : LineItem[] = []
     private number:string
     private ordered:string
     private shipped:string
@@ -32,7 +32,7 @@ class Order{
     }public getship_to():string{
         return this.ship_to
     }
-    public addLineitems(lineitems: Lineitem){
+    public addLineitems(lineitems: LineItem){
         this.lineitems.push(lineitems)
     }
      public setstatus(status:OrderStatus):void{

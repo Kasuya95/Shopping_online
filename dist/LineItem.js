@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Lineitem = void 0;
-class Lineitem {
+exports.LineItem = void 0;
+class LineItem {
     constructor(quantity, price, product) {
         this.quantity = quantity;
         this.price = price;
@@ -26,4 +26,4 @@ class Lineitem {
         return this.quantity * this.price;
     }
 }
-exports.Lineitem = Lineitem;
+exports.LineItem = LineItem;

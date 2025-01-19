@@ -1,5 +1,5 @@
 import { Product } from "./Product"
-class Lineitem{
+class LineItem{
     private product : Product
     private quantity: number
     private price: number
@@ -29,4 +29,4 @@ class Lineitem{
         return this.quantity * this.price
     }
 }
-export {Lineitem}
+export {LineItem}

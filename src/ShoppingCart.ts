@@ -1,22 +1,28 @@
+import { Account } from "./Account"
 import { WebUser } from "./WebUser"
-class ShoppingCart{
-    private WebUser : WebUser 
-    private create : string 
+import { LineItem } from "./LineItem";
 
-    constructor(create:string ,WebUser:WebUser){
-        this.create = create
-        this.WebUser = WebUser
-    }
+class ShoppingCart extends Account {
+    private lineItem: LineItem[] = []
+    private created: string
 
-    private getcreate():string{
-        return this.create
-    }
-    private setcreate(create:string):void{
-        this.create = create
-    }
-    private tostring():string{
-        return `Cart create:${this.create} ${this.WebUser}`
+    constructor(webUser: WebUser, id: string, address: string, phone: string, email: string, accountId: string,billing_address: string, is_closed: boolean, open: string, closed: string | null, created: string, lineItem: LineItem[]) {
+        super(webUser, id, address, phone, email, accountId, billing_address, is_closed, open, closed);
+        this.lineItem = lineItem
+        this.created = created;
+      }
+
+    public getCreated():string{
+        return this.created
     }
 
+    public setCreated(create: string):void{
+        this.created = create
+    }
+
+    public toString():string{
+        return `ShoppingCart | [Created: ${this.created} LineItem: ${this.lineItem}, [Account ${super.toString()}]]`
+    }
 }
-export {ShoppingCart}
+
+export { ShoppingCart }

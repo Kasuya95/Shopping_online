@@ -2,39 +2,36 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Customer = void 0;
 class Customer {
-    constructor(id, address, phone, email, WebUser) {
+    constructor(webUser, id, address, phone, email) {
+        this.webUser = webUser;
         this.id = id;
         this.address = address;
         this.phone = phone;
         this.email = email;
-        this.WebUser = WebUser;
     }
-    getid() {
+    getId() {
         return this.id;
     }
-    setid(id) {
-        this.id = id;
-    }
-    getaddress() {
+    getAddress() {
         return this.address;
     }
-    setaddress(address) {
+    setAddress(address) {
         this.address = address;
     }
-    getphone() {
+    getPhone() {
         return this.phone;
     }
-    setphone(phone) {
+    setPhone(phone) {
         this.phone = phone;
     }
-    getemail() {
+    getEmail() {
         return this.email;
     }
-    setemail(email) {
+    setEmail(email) {
         this.email = email;
     }
-    tostring() {
-        return `[Customer id:${this.id} address:${this.address} phone:${this.phone} email:${this.email}] ${this.WebUser}`;
+    toString() {
+        return `Customer | [ID = ${this.id}], [Address = ${this.address}], [Phone = ${this.phone}], [Email = ${this.email}] WebUser | [${this.webUser.toString()}]`;
     }
 }
 exports.Customer = Customer;

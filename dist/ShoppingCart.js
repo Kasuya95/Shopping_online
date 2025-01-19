@@ -1,19 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ShoppingCart = void 0;
-class ShoppingCart {
-    constructor(create, WebUser) {
-        this.create = create;
-        this.WebUser = WebUser;
+const Account_1 = require("./Account");
+class ShoppingCart extends Account_1.Account {
+    constructor(webUser, id, address, phone, email, accountId, billing_address, is_closed, open, closed, created, lineItem) {
+        super(webUser, id, address, phone, email, accountId, billing_address, is_closed, open, closed);
+        this.lineItem = [];
+        this.lineItem = lineItem;
+        this.created = created;
     }
-    getcreate() {
-        return this.create;
+    getCreated() {
+        return this.created;
     }
-    setcreate(create) {
-        this.create = create;
+    setCreated(create) {
+        this.created = create;
     }
-    tostring() {
-        return `Cart create:${this.create} ${this.WebUser}`;
+    toString() {
+        return `ShoppingCart | [Created: ${this.created} LineItem: ${this.lineItem}, [Account ${super.toString()}]]`;
     }
 }
 exports.ShoppingCart = ShoppingCart;
