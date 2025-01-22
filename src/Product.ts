@@ -1,31 +1,29 @@
 class Product {
-    private id : string
-    private name : string
-    private supplier : string
+    private id: string;
+    private name: string;
+    private supplier: string;
 
-    constructor(id:string,name:string,supplier:string){
-        this.id = id
-        this.name = name
-        this.supplier = supplier
+    constructor(id: string, name: string, supplier: string) {
+        this.id = id;
+        this.name = name;
+        this.supplier = supplier;
     }
-    public getid():string{
-        return this.id
+
+    public getId(): string {
+        return this.id;
     }
-    
-    public getname():string{
-        return this.name
+
+    public getName(): string {
+        return this.name;
     }
-    public setname(name:string):void{
-        this.name = name
+
+    public getSupplier(): string {
+        return this.supplier;
     }
-    public getsuppplier():string{
-        return this.supplier
-    }
-    public setsupplier(supplier:string):void{
-        this.supplier = supplier
-    }
-    public tostring():string{
-        return `[Product id:${this.id} name:${this.name} supplier:${this.supplier}]`
+
+    public toString(): string {
+        return `[Product id: ${this.id} name: ${this.name} supplier: ${this.supplier}]`;
     }
 }
-export {Product}
+
+export { Product };

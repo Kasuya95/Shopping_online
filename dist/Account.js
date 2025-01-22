@@ -1,45 +1,61 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Account = void 0;
-const Customer_1 = require("./Customer");
-class Account extends Customer_1.Customer {
-    constructor(webUser, id, address, phone, email, accountId, billing_address, is_closed, open, closed) {
-        super(webUser, id, address, phone, email);
+class Account {
+    constructor(webUser, accountId, billingAddress, isClosed = false, openDate, closedDate = null, customerId, customerAddress, customerPhone, customerEmail) {
         this.accountId = accountId;
-        this.billing_address = billing_address;
-        this.is_closed = is_closed;
-        this.open = open;
-        this.closed = closed;
+        this.billingAddress = billingAddress;
+        this.isClosed = isClosed;
+        this.openDate = openDate;
+        this.closedDate = closedDate;
+        this.customer = { id: customerId, address: customerAddress, phone: customerPhone, email: customerEmail };
     }
-    getId() {
+    // Getter and Setter for accountId
+    getAccountId() {
         return this.accountId;
     }
-    getBilling_address() {
-        return this.billing_address;
+    // Getter and Setter for billingAddress
+    getBillingAddress() {
+        return this.billingAddress;
     }
-    setBilling_address(billing_address) {
-        this.billing_address = billing_address;
+    setBillingAddress(billingAddress) {
+        this.billingAddress = billingAddress;
     }
-    getIs_closed() {
-        return this.is_closed;
+    // Getter and Setter for isClosed
+    getIsClosed() {
+        return this.isClosed;
     }
-    setIs_closed(is_closed) {
-        this.is_closed = is_closed;
+    setIsClosed(isClosed) {
+        this.isClosed = isClosed;
     }
-    getOpen() {
-        return this.open;
+    // Getter and Setter for openDate
+    getOpenDate() {
+        return this.openDate;
     }
-    setOpen(open) {
-        this.open = open;
+    setOpenDate(openDate) {
+        this.openDate = openDate;
     }
-    getClosed() {
-        return this.closed;
+    // Getter and Setter for closedDate
+    getClosedDate() {
+        return this.closedDate;
     }
-    setClosed(closed) {
-        this.closed = closed;
+    setClosedDate(closedDate) {
+        this.closedDate = closedDate;
     }
+    // Getter and Setter for customer information
+    getCustomerInfo() {
+        return this.customer;
+    }
+    setCustomerInfo(customerId, address, phone, email) {
+        this.customer = { id: customerId, address: address, phone: phone, email: email };
+    }
+    // Method to return a string representation of the account
     toString() {
-        return `Account | [id: ${this.accountId}, billing_address: ${this.billing_address}, is_closed: ${this.is_closed}, open: ${this.open}, closed: ${this.closed}, [Customer ${super.toString()}]]`;
+        return `
+      Account | [id: ${this.accountId}, billingAddress: ${this.billingAddress}, isClosed: ${this.isClosed}, 
+      openDate: ${this.openDate}, closedDate: ${this.closedDate}, 
+      Customer | [id: ${this.customer.id}, address: ${this.customer.address}, phone: ${this.customer.phone}, email: ${this.customer.email}]
+    `;
     }
 }
 exports.Account = Account;

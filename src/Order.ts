@@ -41,7 +41,7 @@ class Order{
     public calctotal(){
         
         for(let i = 0; i < this.lineitems.length; i++){
-            this.total = this.lineitems[i].calctotal()
+            this.total = this.lineitems[i].calcTotal()
         }
         return this.total
     }

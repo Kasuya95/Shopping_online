@@ -1,62 +1,89 @@
-import { Customer } from "./Customer";
 import { WebUser } from "./WebUser";
 
-class Account extends Customer {
+class Account {
   private accountId: string;
-  private billing_address: string;
-  private is_closed: boolean;
-  private open: string;
-  private closed: string | null;
+  private billingAddress: string;
+  private isClosed: boolean;
+  private openDate: string;
+  private closedDate: string | null;
+ 
+  private customer: { id: string; address: string; phone: string; email: string };
 
-  constructor(webUser: WebUser,id: string, address: string, phone: string, email: string, accountId: string, billing_address: string, is_closed: boolean, open: string, closed: string | null) {
-    super(webUser, id, address, phone, email)
+  constructor(webUser: WebUser,accountId: string,billingAddress: string,isClosed:boolean = false,
+    openDate: string,
+    closedDate: string | null = null,
+    customerId: string,
+    customerAddress: string,
+    customerPhone: string,
+    customerEmail: string
+  ) {
     this.accountId = accountId;
-    this.billing_address = billing_address;
-    this.is_closed = is_closed;
-    this.open = open;
-    this.closed = closed;
+    this.billingAddress = billingAddress;
+    this.isClosed = isClosed;
+    this.openDate = openDate;
+    this.closedDate = closedDate;
+
+    this.customer = { id: customerId, address: customerAddress, phone: customerPhone, email: customerEmail };
   }
 
-  public getId():string {
-    return this.accountId
+  // Getter and Setter for accountId
+  public getAccountId(): string {
+    return this.accountId;
   }
 
-  public getBilling_address():string{
-    return this.billing_address
+  // Getter and Setter for billingAddress
+  public getBillingAddress(): string {
+    return this.billingAddress;
   }
 
-  public setBilling_address(billing_address: string):void{
-    this.billing_address = billing_address
+  public setBillingAddress(billingAddress: string): void {
+    this.billingAddress = billingAddress;
   }
 
-  public getIs_closed():boolean{
-    return this.is_closed
+  // Getter and Setter for isClosed
+  public getIsClosed(): boolean {
+    return this.isClosed;
   }
 
-  public setIs_closed(is_closed: boolean):void{
-    this.is_closed = is_closed
+  public setIsClosed(isClosed: boolean): void {
+    this.isClosed = isClosed;
   }
 
-  public getOpen():string{
-    return this.open
+  // Getter and Setter for openDate
+  public getOpenDate(): string {
+    return this.openDate;
   }
 
-  public setOpen(open: string):void{
-    this.open = open
+  public setOpenDate(openDate: string): void {
+    this.openDate = openDate;
   }
 
-  public getClosed():string | null{
-    return this.closed
+  // Getter and Setter for closedDate
+  public getClosedDate(): string | null {
+    return this.closedDate;
   }
 
-  public setClosed(closed: string | null):void{
-    this.closed = closed
+  public setClosedDate(closedDate: string | null): void {
+    this.closedDate = closedDate;
   }
 
-  public toString():string {
-    return `Account | [id: ${this.accountId}, billing_address: ${this.billing_address}, is_closed: ${this.is_closed}, open: ${this.open}, closed: ${this.closed}, [Customer ${super.toString()}]]`
+  // Getter and Setter for customer information
+  public getCustomerInfo(): { id: string; address: string; phone: string; email: string } {
+    return this.customer;
   }
 
+  public setCustomerInfo(customerId: string, address: string, phone: string, email: string): void {
+    this.customer = { id: customerId, address: address, phone: phone, email: email };
+  }
+
+  // Method to return a string representation of the account
+  public toString(): string {
+    return `
+      Account | [id: ${this.accountId}, billingAddress: ${this.billingAddress}, isClosed: ${this.isClosed}, 
+      openDate: ${this.openDate}, closedDate: ${this.closedDate}, 
+      Customer | [id: ${this.customer.id}, address: ${this.customer.address}, phone: ${this.customer.phone}, email: ${this.customer.email}]
+    `;
+  }
 }
 
-export { Account }
+export { Account };

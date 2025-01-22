@@ -7,23 +7,20 @@ class LineItem {
         this.price = price;
         this.product = product;
     }
-    getquantity() {
+    getProduct() {
+        return this.product;
+    }
+    getQuantity() {
         return this.quantity;
     }
-    getprice() {
+    getPrice() {
         return this.price;
     }
-    setquantity(quantity) {
-        this.quantity = quantity;
-    }
-    setprice(price) {
-        this.price = price;
-    }
-    tostring() {
-        return `Lineitem quantity:${this.quantity} price:${this.price}${this.product}`;
-    }
-    calctotal() {
+    calcTotal() {
         return this.quantity * this.price;
+    }
+    toString() {
+        return `LineItem | Product: ${this.getProduct()}, Quantity: ${this.quantity}, Price: ${this.price}`;
     }
 }
 exports.LineItem = LineItem;
